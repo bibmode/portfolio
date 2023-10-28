@@ -52,8 +52,6 @@ const AppBar = ({
 
             <button
               onClick={() => {
-                console.log(theme?.theme);
-
                 theme?.theme == "light"
                   ? changeTheme("dark")
                   : changeTheme("light");
@@ -117,8 +115,6 @@ const AppBar = ({
           <div className="flex-none w-60 hidden lg:flex items-center justify-between ">
             <button
               onClick={() => {
-                console.log(theme?.theme);
-
                 theme?.theme == "light"
                   ? changeTheme("dark")
                   : changeTheme("light");

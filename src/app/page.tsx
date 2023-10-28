@@ -43,10 +43,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    console.log(theme);
-  }, [theme]);
-
   return (
     <ThemeContext.Provider value={{ theme }}>
       <main

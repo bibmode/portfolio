@@ -48,7 +48,6 @@ const ContactForm = () => {
   } = useForm<FormValues>({ resolver });
 
   const onSubmit = handleSubmit((data) => {
-    console.log("hello");
     const templateParams = {
       name: data.name,
       notes: data.message,
@@ -63,7 +62,6 @@ const ContactForm = () => {
       )
       .then(
         function (response) {
-          console.log("SUCCESS!", response.status, response.text);
           toast("Email Sent!");
         },
         function (error) {

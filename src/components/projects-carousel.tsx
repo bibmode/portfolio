@@ -59,7 +59,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
   }
 
   const changeProject = (newProjectNumber: number) => {
-    console.log(newProjectNumber);
     scrollToRef(refs[newProjectNumber]);
     setProjectNumber(newProjectNumber);
   };
@@ -89,9 +88,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
     >
       <div
         className="h-screen no-scrollbar overflow-x-scroll overflow-y-hidden scroll-smooth flex items-stretch snap-x snap-mandatory"
-        onDrag={() => {
-          console.log("hello");
-        }}
         ref={containerRef}
       >
         {/* navigation */}
