@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const AnimatedIconsBg = () => {
   return (
-    <div className="container h-[600px] -z-10 absolute top-4 overflow-x-hidden overflow-y-visible">
+    <div className="container h-[600px] z-10 absolute top-4 overflow-x-hidden overflow-y-visible">
       <motion.div
         initial={{ x: "0%", opacity: 0 }}
         animate={{

@@ -1,4 +1,5 @@
 "use client";
+import { ThemeContext } from "@/app/page";
 import {
   DevicePhoneMobileIcon,
   GlobeAltIcon,
@@ -6,8 +7,11 @@ import {
   PresentationChartLineIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import { useContext } from "react";
 
 const SkillsFeature = () => {
+  const theme = useContext(ThemeContext);
+
   const childVariants = {
     hidden: { y: "50%", opacity: 0 },
     visible: {
@@ -34,9 +38,13 @@ const SkillsFeature = () => {
         ease: "easeInOut",
         staggerChildren: 0.5,
       }}
-      className="container mx-auto"
+      className="md:container mx-8 md:mx-auto z-50 -mb-52"
     >
-      <div className="flex justify-around py-16 px-2 rounded-4xl bg-[#FFF2CC]">
+      <div
+        className={`${
+          theme?.theme == "light" ? "bg-white" : "bg-gray-800"
+        } py-20 px-12 md:px-20 xl:px-28 rounded-4xl   border border-slate-700 grid md:grid-cols-2 xl:grid-cols-4 gap-20 xl:gap-28`}
+      >
         <motion.div
           initial="hidden"
           animate="visible"
@@ -46,12 +54,16 @@ const SkillsFeature = () => {
             ease: "easeInOut",
           }}
           variants={childVariants}
-          className="flex flex-col w-56"
+          className="flex flex-col"
         >
           <div>
-            <DevicePhoneMobileIcon className="h-12 w-12 -ml-2  " />
+            <DevicePhoneMobileIcon
+              className={`h-12 w-12 -ml-2  ${
+                theme?.theme == "light" ? "text-violet-700" : "text-white"
+              }`}
+            />
           </div>
-          <h3 className="text-2xl my-4 font-medium">Mobile Development</h3>
+          <h3 className="text-2xl my-4 font-semibold">Mobile Development</h3>
           <h4>
             Adept in Flutter, I engineer captivating mobile experiences,
             seamlessly harmonizing form and function to engage users
@@ -67,10 +79,14 @@ const SkillsFeature = () => {
             ease: "easeInOut",
           }}
           variants={childVariants}
-          className="flex flex-col w-56"
+          className="flex flex-col"
         >
-          <GlobeAltIcon className="h-12 w-12 -ml-1  " />
-          <h3 className="text-2xl my-4 font-medium">
+          <GlobeAltIcon
+            className={`h-12 w-12 -ml-1  ${
+              theme?.theme == "light" ? "text-violet-700" : "text-white"
+            }`}
+          />
+          <h3 className="text-2xl my-4 font-semibold">
             Web
             <br />
             Development
@@ -89,11 +105,15 @@ const SkillsFeature = () => {
             ease: "easeInOut",
           }}
           variants={childVariants}
-          className="flex flex-col w-56"
+          className="flex flex-col"
         >
-          <PaintBrushIcon className="h-12 w-12  " />
-          <h3 className="text-2xl my-4 font-medium">Eye for Design</h3>
-          <h4>
+          <PaintBrushIcon
+            className={`h-12 w-12 ${
+              theme?.theme == "light" ? "text-violet-700" : "text-white"
+            }`}
+          />
+          <h3 className="text-2xl my-4 font-semibold">Eye for Design</h3>
+          <h4 className={`${theme?.theme == "dark" && ""}`}>
             My design prowess amplifies user engagement through aesthetically
             pleasing interfaces, enriched with intuitive interactions and
             animations.
@@ -108,10 +128,14 @@ const SkillsFeature = () => {
             ease: "easeInOut",
           }}
           variants={childVariants}
-          className="flex flex-col w-56"
+          className="flex flex-col"
         >
-          <PresentationChartLineIcon className="h-12 w-12 -ml-1  " />
-          <h3 className="text-2xl my-4 font-medium">Startup Experience</h3>
+          <PresentationChartLineIcon
+            className={`h-12 w-12 -ml-1  ${
+              theme?.theme == "light" ? "text-violet-700" : "text-white"
+            }`}
+          />
+          <h3 className="text-2xl my-4 font-semibold">Startup Experience</h3>
           <h4>
             Champion of the StartU Hackathon and TECHpreneurs StartUp
             Championship, I excel in high-paced environments, infusing

@@ -1,7 +1,8 @@
+"use client";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AppBar from "../components/appbar";
+import React, { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
       </head>
+
       <body className={inter.className}>{children}</body>
     </html>
   );

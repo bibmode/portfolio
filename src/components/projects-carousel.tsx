@@ -3,33 +3,26 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import ScrapCycle from "./project-sections/scrapcycle";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import {
+  MutableRefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import RdpLines from "./project-sections/rdplines";
 import Scrapper from "./project-sections/scrapper";
 import Gravitea from "./project-sections/gravitea";
 import Draggable from "react-draggable";
+import { ThemeContext } from "@/app/page";
 
-const toggleVariants = {
-  next: (width = 100) => ({
-    scrollX: "-100vw",
-    transition: {
-      ease: "easeIn",
-    },
-  }),
-  prev: (width = 100) => ({
-    scrollX: "100vw",
-    transition: {
-      ease: "easeIn",
-    },
-  }),
-  start: {
-    x: 0,
-  },
+type CarouselType = {
+  carouselRef: MutableRefObject<null | HTMLDivElement>;
 };
 
-const ProjectsCarousel: React.FC = () => {
+const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
+  const theme = useContext(ThemeContext);
   const [projectNumber, setProjectNumber] = useState<number>(0);
-  const [direction, setDirection] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrapcycleRef = useRef<HTMLDivElement>(null);
   const rdpLinesRef = useRef<HTMLDivElement>(null);
@@ -77,19 +70,30 @@ const ProjectsCarousel: React.FC = () => {
 
   return (
     <div
+      ref={carouselRef}
       className={`h-screen min-w-screen relative overflow-y-hidden transition-colors duration-1000 delay-100 ${
-        projectNumber == 0
+        theme?.theme == "light" &&
+        (projectNumber == 0
           ? "bg-teal-50"
           : projectNumber == 1
           ? "bg-blue-50"
           : projectNumber == 2
           ? "bg-orange-50"
-          : "bg-purple-50"
+          : "bg-purple-50")
+      }  ${
+        theme?.theme == "dark" &&
+        (projectNumber == 0
+          ? "bg-teal-900"
+          : projectNumber == 1
+          ? "bg-blue-900"
+          : projectNumber == 2
+          ? "bg-orange-900"
+          : "bg-purple-900")
       }`}
     >
       <div
         onScroll={(e) => console.log(e)}
-        className="h-screen min-w-full no-scrollbar overflow-x-scroll overflow-y-hidden scroll-smooth flex items-stretch snap-x snap-mandatory"
+        className="h-screen no-scrollbar overflow-x-scroll overflow-y-hidden scroll-smooth flex items-stretch snap-x snap-mandatory"
         onDrag={() => {
           console.log("hello");
         }}
@@ -105,7 +109,7 @@ const ProjectsCarousel: React.FC = () => {
           <button
             className={`${
               projectNumber == 0 && "cursor-context-menu"
-            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center`}
+            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center translate-x-10`}
             type="button"
             onClick={() => prevProject()}
           >
@@ -158,7 +162,7 @@ const ProjectsCarousel: React.FC = () => {
           <button
             className={`${
               projectNumber == 3 && "cursor-context-menu"
-            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center`}
+            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center -translate-x-12`}
             type="button"
             onClick={() => nextProject()}
           >
@@ -167,8 +171,6 @@ const ProjectsCarousel: React.FC = () => {
         </div>
 
         {/* navigation */}
-
-        {/* scrapcycle */}
         <div
           id="scrapcycle"
           ref={scrapcycleRef}

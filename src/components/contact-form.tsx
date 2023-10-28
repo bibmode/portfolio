@@ -1,6 +1,10 @@
 "use client";
+import { ThemeContext } from "@/app/page";
+import emailjs from "@emailjs/browser";
 import { RocketLaunchIcon } from "@heroicons/react/24/solid";
+import { useContext } from "react";
 import { useForm, Resolver } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type FormValues = {
   email: string;
@@ -11,16 +15,16 @@ type FormValues = {
 const resolver: Resolver<FormValues> = async (values) => {
   return {
     values: values.email && values.name && values.message ? values : {},
-    errors: !values.email
+    errors: !values.name
       ? {
-          email: {
+          name: {
             type: "required",
             message: "This is required.",
           },
         }
-      : !values.name
+      : !values.email
       ? {
-          name: {
+          email: {
             type: "required",
             message: "This is required.",
           },
@@ -42,43 +46,88 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({ resolver });
-  const onSubmit = handleSubmit((data) => console.log(data));
+
+  const onSubmit = handleSubmit((data) => {
+    console.log("hello");
+    const templateParams = {
+      name: data.name,
+      notes: data.message,
+    };
+
+    emailjs
+      .send(
+        "service_q85xz7a",
+        "template_xn29n7m",
+        templateParams,
+        "MmCZwBAhwqz0sksB0"
+      )
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          toast("Email Sent!");
+        },
+        function (error) {
+          toast.error("Error in Sending Message!");
+        }
+      );
+  });
+
+  const theme = useContext(ThemeContext);
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col w-144 px-8">
+    <form onSubmit={onSubmit} className="flex flex-col w-full max-w-2xl px-8">
       <div className="w-full mb-5">
         <h3 className="mb-1 text-sm">NAME</h3>
         <input
           {...register("name")}
-          placeholder="Luo"
-          className="w-full px-3 py-2 rounded-md border border-purple-600"
+          placeholder="Enter Name Here"
+          className={`w-full px-3 py-2 rounded-md border ${
+            errors?.name ? "border-red-600" : "border-purple-600"
+          } ${
+            theme?.theme == "dark" &&
+            "bg-violet-400 text-slate-900 placeholder:text-slate-700 focus:border-violet-400"
+          }`}
         />
-        {errors?.name && <p>{errors.name.message}</p>}
+        {errors?.name && <p className="text-red-600">{errors.name.message}</p>}
       </div>
 
       <div className="w-full mb-5">
         <h3 className="mb-1 text-sm">EMAIL</h3>
         <input
           {...register("email")}
-          placeholder="Bill"
-          className="w-full px-3 py-2 rounded-md border border-purple-600"
+          placeholder="Enter Your Email"
+          className={`w-full px-3 py-2 rounded-md border ${
+            errors?.email ? "border-red-600" : "border-purple-600"
+          } ${
+            theme?.theme == "dark" &&
+            "bg-violet-400 text-slate-900 placeholder:text-slate-700 focus:border-violet-400"
+          }`}
         />
-        {errors?.email && <p>{errors.email.message}</p>}
+        {errors?.email && (
+          <p className="text-red-600">{errors.email.message}</p>
+        )}
       </div>
 
       <div className="w-full mb-5">
         <h3 className="mb-1 text-sm">MESSAGE</h3>
         <textarea
           {...register("message")}
-          placeholder="Bill"
-          className="w-full px-3 py-2 rounded-md border border-purple-600 h-40 resize-none"
+          placeholder="Leave a Message"
+          className={`w-full px-3 py-2 rounded-md border ${
+            errors?.message ? "border-red-600" : "border-purple-600"
+          } ${
+            theme?.theme == "dark" &&
+            "bg-violet-400 text-slate-900 placeholder:text-slate-700 focus:border-violet-400"
+          }`}
         />
-        {errors?.message && <p>{errors.message.message}</p>}
+        {errors?.message && (
+          <p className="text-red-600">{errors.message.message}</p>
+        )}
       </div>
 
       <button
         type="submit"
-        className="flex justify-center text-white bg-violet-500 rounded-lg py-2"
+        className="flex justify-center text-white bg-violet-700 rounded-lg py-2 hover:bg-violet-900 duration-200 transition-colors"
       >
         <h3>HIT ME UP!</h3>
         <RocketLaunchIcon className="h-6 w-6 ml-3" />{" "}
