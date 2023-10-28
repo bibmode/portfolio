@@ -72,8 +72,9 @@ const ProjectDetails = ({
           {description}
         </p>
         <ul className="flex w-full justify-center flex-wrap overflow-x-auto  font-medium text-sm sm:text-md">
-          {technologies.map((tech) => (
+          {technologies.map((tech, index) => (
             <li
+              key={`project-${index}-key`}
               className={`ml-2 mb-3 border-2 ${
                 theme?.theme == "light" &&
                 (entryNumber == 1
