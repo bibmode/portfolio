@@ -16,36 +16,51 @@ const Footer = () => {
         </h5>
         <div className="flex flex-grow justify-center">
           <a
-            href="http://"
+            href="https://github.com/bibmode"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white hover:border-violet-600 hover:bg-violet-600 transition-all duration-200 w-12 h-12 flex items-center justify-center border border-slate-500 rounded-full mr-3"
           >
             <i className="fa-brands fa-github text-xl" />
           </a>
+
           <a
-            href="http://"
-            className="hover:text-white hover:border-violet-600 hover:bg-violet-600 transition-all duration-200 w-12 h-12 flex items-center justify-center border border-slate-500 rounded-full mr-3"
-          >
-            <i className="fa-brands fa-instagram text-xl" />
-          </a>
-          <a
-            href="http://"
+            href="https://www.linkedin.com/in/genevieve-navales-03065120b/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white hover:border-violet-600 hover:bg-violet-600 transition-all duration-200 w-12 h-12 flex items-center justify-center border border-slate-500 rounded-full mr-3"
           >
             <i className="fa-brands fa-linkedin-in text-xl" />
           </a>
 
           <a
-            href="http://"
+            href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=vievenavales@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white hover:border-violet-600 hover:bg-violet-600 transition-all duration-200 w-12 h-12 flex items-center justify-center border border-slate-500 rounded-full"
           >
             <i className="fa-regular fa-envelope text-xl" />
           </a>
         </div>
-        <a className="flex-1 text-end hidden sm:block">Source Code</a>
+        <a
+          href="https://github.com/bibmode/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 text-end hidden sm:block hover:text-violet-500"
+        >
+          Source Code
+        </a>
       </div>
       <div className="flex justify-between mb-10 sm:hidden">
         <h5 className="text-start ">© 2023 GennStudios</h5>
-        <a className="text-end ">Source Code</a>
+        <a
+          href="https://github.com/bibmode/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-end"
+        >
+          Source Code
+        </a>
       </div>
     </div>
   );

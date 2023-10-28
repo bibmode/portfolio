@@ -14,14 +14,7 @@ import SkillsFeature from "@/components/skills-feature";
 import ProjectsCarousel from "@/components/projects-carousel";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  MutableRefObject,
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 type ThemeContextType = {
   theme: string;
@@ -30,7 +23,7 @@ type ThemeContextType = {
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export default function Home() {
-  const [theme, setTheme] = useState<string>("dark");
+  const [theme, setTheme] = useState<string>("light");
   const contactRef = useRef<null | HTMLDivElement>(null);
   const worksRef = useRef<null | HTMLDivElement>(null);
 
@@ -112,6 +105,9 @@ export default function Home() {
               with a flair for <b>UI/UX Design.</b>
             </motion.h2>
             <motion.a
+              href="https://drive.google.com/file/d/1OJaBnhLMzgKpL94HsAOd-zf4bUg44ES-/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ y: "-10%", opacity: 0 }}
               animate={{
                 y: "0%",
@@ -127,7 +123,6 @@ export default function Home() {
                   ? "border-black hover:border-violet-600 hover:text-violet-600"
                   : "border-white hover:border-violet-500 hover:text-violet-400"
               } z-40 py-3 mt-8 hover:tracking-widest transition-all duration-200`}
-              href="http://"
             >
               CHECK OUT MY FULL RESUME{" "}
               <ArrowUpRightIcon className={`h-6 w-6 ml-2 `} />
@@ -139,7 +134,7 @@ export default function Home() {
             <SkillsFeature />
 
             {/* projects header*/}
-            <div className="bg-violet-600 pb-24 pt-80 text-center font-extrabold flex flex-col items-center text-3xl lg:text-[40px] text-white tracking-wider">
+            <div className="bg-violet-600 pb-24 pt-72 text-center font-extrabold flex flex-col items-center text-3xl lg:text-[40px] text-white tracking-wider">
               <h2 className="sm:flex justify-center">
                 PROJECTS{" "}
                 <WrenchScrewdriverIcon className="text-white mx-3 h-12 w-12 hidden sm:block" />{" "}
@@ -175,7 +170,7 @@ export default function Home() {
                 Looking for a reliable developer?
               </h2>
               <a
-                href="http://"
+                href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=vievenavales@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm lg:text-base flex mt-8 mb-6 w-fit hover:text-violet-600"
@@ -184,10 +179,12 @@ export default function Home() {
                 <h4>vievenavales29@gmail.com</h4>
               </a>
               <a
+                href="https://drive.google.com/file/d/1OJaBnhLMzgKpL94HsAOd-zf4bUg44ES-/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`text-sm lg:text-base flex border-b-2 ${
                   theme == "light" ? "border-black" : "border-white"
                 }  py-1 w-fit hover:border-violet-600 hover:text-violet-600 transition-all`}
-                href="http://"
               >
                 CHECK OUT MY FULL RESUME{" "}
                 <ArrowUpRightIcon className="h-6 w-6 ml-2 " />
@@ -206,13 +203,15 @@ export default function Home() {
               <br />
               code on GitHub!
             </p>
-            <button
-              type="button"
+            <a
+              href="https://github.com/bibmode/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-violet-600 font-bold py-2 px-4 rounded-lg hover:scale-105 transition-all duration-200"
             >
               <i className="fa-brands fa-github mr-3 text-xl" />
               View on Github
-            </button>
+            </a>
           </div>
         </div>
         <Footer />

@@ -43,7 +43,7 @@ const AppBar = ({
 
             <a
               className="hover:text-violet-700 transition-all duration-200"
-              href="http://"
+              href="https://github.com/bibmode"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -104,7 +104,7 @@ const AppBar = ({
             </button>
             <a
               className="hover:text-violet-700 transition-all duration-200"
-              href="http://"
+              href="https://github.com/bibmode"
               target="_blank"
               rel="noopener noreferrer"
             >

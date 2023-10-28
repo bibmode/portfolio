@@ -38,12 +38,14 @@ const SkillsFeature = () => {
         ease: "easeInOut",
         staggerChildren: 0.5,
       }}
-      className="md:container mx-8 md:mx-auto z-50 -mb-52"
+      className="md:container mx-8 md:mx-auto z-50 -mb-40"
     >
       <div
         className={`${
-          theme?.theme == "light" ? "bg-white" : "bg-gray-800"
-        } py-20 px-12 md:px-20 xl:px-28 rounded-4xl   border border-slate-700 grid md:grid-cols-2 xl:grid-cols-4 gap-20 xl:gap-28`}
+          theme?.theme == "light"
+            ? "bg-white border-slate-300"
+            : "bg-gray-800 border-slate-700"
+        } py-20 px-12 md:px-20 xl:px-28 rounded-4xl   border  grid md:grid-cols-2 xl:grid-cols-4 gap-20 xl:gap-28`}
       >
         <motion.div
           initial="hidden"
