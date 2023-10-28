@@ -74,7 +74,7 @@ export default function Home() {
                 delay: 0.5,
                 ease: "easeIn",
               }}
-              className="w-40 h-40 bg-[url('/profile-picture.jpg')] z-40 bg-cover rounded-full mb-12 border-4 border-black"
+              className="w-40 h-40 bg-[url('/profile-picture.png')] z-40 bg-cover rounded-full mb-12 border-4 border-black"
             ></motion.div>
             <motion.h2
               initial={{ y: "-10%", opacity: 0 }}

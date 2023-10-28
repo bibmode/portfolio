@@ -2,6 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Genevieve Navales</title>
+        <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
