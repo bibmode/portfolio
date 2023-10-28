@@ -162,7 +162,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
         </div>
 
         {/* navigation */}
-
         <div
           id="scrapcycle"
           ref={scrapcycleRef}
