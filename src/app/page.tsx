@@ -105,7 +105,7 @@ export default function Home() {
               with a flair for <b>UI/UX Design.</b>
             </motion.h2>
             <motion.a
-              href="https://drive.google.com/file/d/1OJaBnhLMzgKpL94HsAOd-zf4bUg44ES-/view?usp=sharing"
+              href="https://drive.google.com/file/d/1DBw8dEVKVNqNDubI9re-Rx6nvwGUH-ma/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ y: "-10%", opacity: 0 }}
@@ -179,7 +179,7 @@ export default function Home() {
                 <h4>vievenavales29@gmail.com</h4>
               </a>
               <a
-                href="https://drive.google.com/file/d/1OJaBnhLMzgKpL94HsAOd-zf4bUg44ES-/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DBw8dEVKVNqNDubI9re-Rx6nvwGUH-ma/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-sm lg:text-base flex border-b-2 ${
