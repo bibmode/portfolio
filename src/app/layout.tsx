@@ -1,9 +1,7 @@
-"use client";
 import "./globals.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
