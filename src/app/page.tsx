@@ -14,15 +14,10 @@ import SkillsFeature from "@/components/skills-feature";
 import ProjectsCarousel from "@/components/projects-carousel";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { ThemeContext } from "@/utilities/constants";
 
-type ThemeContextType = {
-  theme: string;
-};
-
-export const ThemeContext = createContext<ThemeContextType | null>(null);
-
-export default function Home() {
+const Home = () => {
   const [theme, setTheme] = useState<string>("light");
   const contactRef = useRef<null | HTMLDivElement>(null);
   const worksRef = useRef<null | HTMLDivElement>(null);
@@ -214,4 +209,6 @@ export default function Home() {
       </main>
     </ThemeContext.Provider>
   );
-}
+};
+
+export default Home;

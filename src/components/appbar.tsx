@@ -3,7 +3,7 @@ import { Bars3Icon, EnvelopeIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
 import { MutableRefObject, useContext, useState } from "react";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/utilities/constants";
 
 type AppBarType = {
   changeTheme: (value: string) => void;

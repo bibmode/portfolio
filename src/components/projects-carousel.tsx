@@ -4,7 +4,7 @@ import { MutableRefObject, useContext, useRef, useState } from "react";
 import RdpLines from "./project-sections/rdplines";
 import Scrapper from "./project-sections/scrapper";
 import Gravitea from "./project-sections/gravitea";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/utilities/constants";
 
 type CarouselType = {
   carouselRef: MutableRefObject<null | HTMLDivElement>;

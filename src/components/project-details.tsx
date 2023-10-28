@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/utilities/constants";
 
 type ProjectProps = {
   entryNumber: number;

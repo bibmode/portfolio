@@ -1,5 +1,5 @@
 "use client";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/utilities/constants";
 import emailjs from "@emailjs/browser";
 import { RocketLaunchIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";

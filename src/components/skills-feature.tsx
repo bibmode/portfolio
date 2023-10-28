@@ -1,5 +1,5 @@
 "use client";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/utilities/constants";
 import {
   DevicePhoneMobileIcon,
   GlobeAltIcon,
