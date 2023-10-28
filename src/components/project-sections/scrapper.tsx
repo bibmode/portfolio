@@ -1,26 +1,39 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectDetails from "../project-details";
+import VisibilitySensor from "react-visibility-sensor";
 
-const Scrapper = () => {
+type ScrapperProps = {
+  changeProject: (newProjectNumber: number) => void;
+};
+
+const Scrapper = ({ changeProject }: ScrapperProps) => {
   return (
     <div className="container mx-auto w-full h-full relative overflow-x-visible">
       {/* center details */}
-      <ProjectDetails
-        entryNumber={3}
-        name="SC Collector"
-        type="Full-stack Mobile Application"
-        description="This is a mobile application for the waste collectors of ScrapCycle.
+      <VisibilitySensor
+        onChange={(isVisible: any) => {
+          if (isVisible == true) {
+            changeProject(2);
+          }
+        }}
+      >
+        <ProjectDetails
+          entryNumber={3}
+          name="SC Collector"
+          type="Full-stack Mobile Application"
+          description="This is a mobile application for the waste collectors of ScrapCycle.
         This allows the waste collectors to track the number of address
         points they have to collect from as well as track their own location
         in the integrated map built in. The app also features a calculator
         for the waste materials collected for easy and fast transactions."
-        technologies={["Flutter", "Open Maps API", "Supabase"]}
-        linkOne="https://play.google.com/store/apps/details?id=sccollector.com&pcampaignid=web_share"
-        linkOneType="Google Play"
-        linkTwo="https://github.com/bibmode/Scrapper-MVP"
-        linkTwoType="Github"
-      />
+          technologies={["Flutter", "Open Maps API", "Supabase"]}
+          linkOne="https://play.google.com/store/apps/details?id=sccollector.com&pcampaignid=web_share"
+          linkOneType="Google Play"
+          linkTwo="https://github.com/bibmode/Scrapper-MVP"
+          linkTwoType="Github"
+        />
+      </VisibilitySensor>
 
       {/* mockups */}
       <motion.div

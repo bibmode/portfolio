@@ -1,19 +1,9 @@
-import { GetServerSideProps } from "next";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import ScrapCycle from "./project-sections/scrapcycle";
-import {
-  MutableRefObject,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { MutableRefObject, useContext, useRef, useState } from "react";
 import RdpLines from "./project-sections/rdplines";
 import Scrapper from "./project-sections/scrapper";
 import Gravitea from "./project-sections/gravitea";
-import Draggable from "react-draggable";
 import { ThemeContext } from "@/app/page";
 
 type CarouselType = {
@@ -68,6 +58,12 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
     setProjectNumber(newProjectNumber);
   }
 
+  const changeProject = (newProjectNumber: number) => {
+    console.log(newProjectNumber);
+    scrollToRef(refs[newProjectNumber]);
+    setProjectNumber(newProjectNumber);
+  };
+
   return (
     <div
       ref={carouselRef}
@@ -92,7 +88,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
       }`}
     >
       <div
-        onScroll={(e) => console.log(e)}
         className="h-screen no-scrollbar overflow-x-scroll overflow-y-hidden scroll-smooth flex items-stretch snap-x snap-mandatory"
         onDrag={() => {
           console.log("hello");
@@ -171,33 +166,34 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
         </div>
 
         {/* navigation */}
+
         <div
           id="scrapcycle"
           ref={scrapcycleRef}
           className="snap-center shrink-0 w-full h-screen overflow-x-visible overflow-y-hidden"
         >
-          <ScrapCycle />
+          <ScrapCycle changeProject={changeProject} />
         </div>
         <div
           id="rdpLines"
           ref={rdpLinesRef}
           className="snap-center shrink-0 z-30 w-screen h-screen overflow-x-visible overflow-y-hidden"
         >
-          <RdpLines />
+          <RdpLines changeProject={changeProject} />
         </div>
         <div
           id="scrapper"
           ref={scrapperRef}
           className="snap-center shrink-0 z-10 w-screen h-screen no-scrollbar overflow-x-visible overflow-y-hidden"
         >
-          <Scrapper />
+          <Scrapper changeProject={changeProject} />
         </div>
         <div
           id="gravitea"
           ref={graviteaRef}
           className="snap-center shrink-0 z-10 w-screen h-screen overflow-x-visible overflow-y-hidden"
         >
-          <Gravitea />
+          <Gravitea changeProject={changeProject} />
         </div>
       </div>
       <h4 className="text-2xl text-center flex-grow z-30 w-fit sticky px-16 py-8 my-9 left-0 top-0">

@@ -1,29 +1,38 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectDetails from "../project-details";
-import { useContext } from "react";
-import { ThemeContext } from "@/app/page";
+import VisibilitySensor from "react-visibility-sensor";
 
-const ScrapCycle = () => {
-  const theme = useContext(ThemeContext);
+type ScrapCycleProps = {
+  changeProject: (newProjectNumber: number) => void;
+};
 
+const ScrapCycle = ({ changeProject }: ScrapCycleProps) => {
   return (
     <div className="container mx-auto w-full h-full relative">
       {/* center details */}
-      <ProjectDetails
-        entryNumber={1}
-        name="ScrapCycle"
-        type="Full-stack Mobile Application"
-        description="ScrapCycle is a mobile app that allows people to trade their
+      <VisibilitySensor
+        onChange={(isVisible: any) => {
+          if (isVisible == true) {
+            changeProject(0);
+          }
+        }}
+      >
+        <ProjectDetails
+          entryNumber={1}
+          name="ScrapCycle"
+          type="Full-stack Mobile Application"
+          description="ScrapCycle is a mobile app that allows people to trade their
             recyclables for cash easily. They can accurately set their location
             in th eaddress page, book multiple waste collections, and see the
             prices of the recyclables they can sell."
-        technologies={["Flutter", "Open Maps API", "Supabase"]}
-        linkOne="https://play.google.com/store/apps/details?id=scrapcycle.com&pcampaignid=web_share"
-        linkOneType="Google Play"
-        linkTwo="https://github.com/bibmode/Waste-Generator-MVP"
-        linkTwoType="Github"
-      />
+          technologies={["Flutter", "Open Maps API", "Supabase"]}
+          linkOne="https://play.google.com/store/apps/details?id=scrapcycle.com&pcampaignid=web_share"
+          linkOneType="Google Play"
+          linkTwo="https://github.com/bibmode/Waste-Generator-MVP"
+          linkTwoType="Github"
+        />
+      </VisibilitySensor>
 
       {/* mockups */}
       <motion.div

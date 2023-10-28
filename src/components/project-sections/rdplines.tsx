@@ -1,26 +1,39 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectDetails from "../project-details";
+import VisibilitySensor from "react-visibility-sensor";
 
-const RdpLines = () => {
+type RDPLinesProps = {
+  changeProject: (newProjectNumber: number) => void;
+};
+
+const RdpLines = ({ changeProject }: RDPLinesProps) => {
   return (
     <div className="container mx-auto w-full h-full relative overflow-x-visible">
       {/* center details */}
-      <ProjectDetails
-        entryNumber={2}
-        name="E-RDP"
-        type="Line Simplification Algorithm and Web Application"
-        description="E-RDP is a web application that showcases the line simplification
+      <VisibilitySensor
+        onChange={(isVisible: any) => {
+          if (isVisible == true) {
+            changeProject(1);
+          }
+        }}
+      >
+        <ProjectDetails
+          entryNumber={2}
+          name="E-RDP"
+          type="Line Simplification Algorithm and Web Application"
+          description="E-RDP is a web application that showcases the line simplification
         algorithm I developed for my thesis paper which can reduce the
         number of points in time series datasets for up to 96.88% in less
         than half the time powered by a python Flask backend and a ReactJS
         frontend."
-        technologies={["Flask", "ReactJS", "Tailwindcss"]}
-        linkOne="https://enhanced-rdp.vercel.app"
-        linkOneType="Live Website"
-        linkTwo="https://github.com/bibmode/Enhanced-RDP"
-        linkTwoType="Github"
-      />
+          technologies={["Flask", "ReactJS", "Tailwindcss"]}
+          linkOne="https://enhanced-rdp.vercel.app"
+          linkOneType="Live Website"
+          linkTwo="https://github.com/bibmode/Enhanced-RDP"
+          linkTwoType="Github"
+        />
+      </VisibilitySensor>
 
       {/* mockups */}
       <motion.div
