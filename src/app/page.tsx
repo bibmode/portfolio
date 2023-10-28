@@ -89,7 +89,7 @@ export default function Home() {
               }}
               className="text-4xl text-center leading-relaxed z-40 mx-8"
             >
-              Welcome to my digital domain! I'm a{" "}
+              Welcome to my digital domain! I&apos;m a{" "}
               <em
                 className={`not-italic p-2  ${
                   theme == "light" ? "bg-[#FFE99A]" : "bg-violet-600"
