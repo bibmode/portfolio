@@ -2,8 +2,9 @@
 import { Bars3Icon, EnvelopeIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
-import { MutableRefObject, useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { ThemeContext } from "@/utilities/constants";
+import { useClickAway } from "react-use";
 
 type AppBarType = {
   changeTheme: (value: string) => void;
@@ -16,14 +17,18 @@ const AppBar = ({
   scrollToContact,
   scrollToWorks,
 }: AppBarType) => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
   const theme = useContext(ThemeContext);
+  const appBarRef = useRef<null | HTMLDivElement>(null);
+
+  useClickAway(appBarRef, () => setOpenMenu(false));
 
   return (
     <>
       <AnimatePresence>
         {openMenu && (
           <motion.div
+            ref={appBarRef}
             initial={{ y: -400, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -400, opacity: 0 }}

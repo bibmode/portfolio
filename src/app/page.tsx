@@ -14,7 +14,7 @@ import SkillsFeature from "@/components/skills-feature";
 import ProjectsCarousel from "@/components/projects-carousel";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRef, useState } from "react";
+import { SyntheticEvent, useRef, useState } from "react";
 import { ThemeContext } from "@/utilities/constants";
 
 const Home = () => {
@@ -82,7 +82,7 @@ const Home = () => {
                 delay: 0.8,
                 ease: "easeOut",
               }}
-              className="text-4xl text-center leading-relaxed z-40 mx-8"
+              className="text-2xl md:text-4xl text-center leading-relaxed z-40 mx-8"
             >
               Welcome to my digital domain! I&apos;m a{" "}
               <em
