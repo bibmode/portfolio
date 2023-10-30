@@ -82,7 +82,7 @@ const Home = () => {
                 delay: 0.8,
                 ease: "easeOut",
               }}
-              className="text-2xl md:text-4xl text-center leading-relaxed z-40 mx-8"
+              className="text-2xl md:text-4xl text-center leading-relaxed md:leading-relaxed z-40 mx-8"
             >
               Welcome to my digital domain! I&apos;m a{" "}
               <em
