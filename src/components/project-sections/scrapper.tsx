@@ -17,6 +17,7 @@ const Scrapper = ({ changeProject }: ScrapperProps) => {
             changeProject(2);
           }
         }}
+        partialVisibility={true}
       >
         <ProjectDetails
           entryNumber={3}

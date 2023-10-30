@@ -17,6 +17,7 @@ const Gravitea = ({ changeProject }: GraviteaProps) => {
             changeProject(3);
           }
         }}
+        partialVisibility={true}
       >
         <ProjectDetails
           entryNumber={4}

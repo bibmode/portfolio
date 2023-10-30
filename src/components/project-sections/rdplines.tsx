@@ -17,6 +17,7 @@ const RdpLines = ({ changeProject }: RDPLinesProps) => {
             changeProject(1);
           }
         }}
+        partialVisibility={true}
       >
         <ProjectDetails
           entryNumber={2}

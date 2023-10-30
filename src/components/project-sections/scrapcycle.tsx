@@ -17,6 +17,7 @@ const ScrapCycle = ({ changeProject }: ScrapCycleProps) => {
             changeProject(0);
           }
         }}
+        partialVisibility={true}
       >
         <ProjectDetails
           entryNumber={1}

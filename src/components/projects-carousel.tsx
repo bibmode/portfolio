@@ -1,6 +1,12 @@
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import ScrapCycle from "./project-sections/scrapcycle";
-import { MutableRefObject, useContext, useRef, useState } from "react";
+import {
+  MutableRefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import RdpLines from "./project-sections/rdplines";
 import Scrapper from "./project-sections/scrapper";
 import Gravitea from "./project-sections/gravitea";
@@ -18,6 +24,10 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
   const rdpLinesRef = useRef<HTMLDivElement>(null);
   const scrapperRef = useRef<HTMLDivElement>(null);
   const graviteaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    console.log(projectNumber);
+  }, [projectNumber]);
 
   const refs: React.RefObject<HTMLDivElement>[] = [
     scrapcycleRef,
@@ -47,7 +57,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
   function nextProject() {
     if (projectNumber != refs.length - 1) {
       const newProjectNumber = projectNumber + 1;
-
       scrollToRef(refs[projectNumber + 1]);
       setProjectNumber(newProjectNumber);
     }
@@ -59,7 +68,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
   }
 
   const changeProject = (newProjectNumber: number) => {
-    scrollToRef(refs[newProjectNumber]);
     setProjectNumber(newProjectNumber);
   };
 
@@ -91,7 +99,6 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
         ref={containerRef}
       >
         {/* navigation */}
-
         <div
           className={`flex flex-col self-center justify-center sticky my-auto h-full w-fit z-50 left-[2vw] top-0 ${
             projectNumber == 0 && "opacity-0"
@@ -100,11 +107,11 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
           <button
             className={`${
               projectNumber == 0 && "cursor-context-menu"
-            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center translate-x-10`}
+            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full hidden md:flex items-center justify-center translate-x-0 md:translate-x-6`}
             type="button"
             onClick={() => prevProject()}
           >
-            <ChevronLeftIcon className="h-10 w-10" />
+            <ChevronLeftIcon className="h-5 md:h-10 w-5 md:w-10 " />
           </button>
         </div>
 
@@ -153,11 +160,11 @@ const ProjectsCarousel = ({ carouselRef }: CarouselType) => {
           <button
             className={`${
               projectNumber == 3 && "cursor-context-menu"
-            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full flex items-center justify-center -translate-x-12`}
+            } bg-white/50 text-slate-600 disabled:text-slate-300 border border-slate-200 backdrop-blur-sm p-4 rounded-full hidden md:flex items-center justify-center -translate-x-7`}
             type="button"
             onClick={() => nextProject()}
           >
-            <ChevronRightIcon className="h-10 w-10" />
+            <ChevronRightIcon className="h-5 md:h-10 w-5 md:w-10" />
           </button>
         </div>
 
