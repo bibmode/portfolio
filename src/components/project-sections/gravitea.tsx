@@ -28,7 +28,7 @@ const Gravitea = ({ changeProject }: GraviteaProps) => {
         visitors and customers. It has a CMS backend which the admin can use
         to update the menu showcased in the site with Sanity.io."
           technologies={["Sanity.io", "NextJS", "Framer Motion"]}
-          linkOne="https://gravitea.vercel.app"
+          linkOne="https://www.gravitea-shop.com/"
           linkOneType="Live Website"
           linkTwo="https://github.com/bibmode/gravitea"
           linkTwoType="Github"

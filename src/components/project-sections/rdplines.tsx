@@ -29,7 +29,7 @@ const RdpLines = ({ changeProject }: RDPLinesProps) => {
         than half the time powered by a python Flask backend and a ReactJS
         frontend."
           technologies={["Flask", "ReactJS", "Tailwindcss"]}
-          linkOne="https://enhanced-rdp.vercel.app"
+          linkOne="https://www.enhanced-rdp.com/"
           linkOneType="Live Website"
           linkTwo="https://github.com/bibmode/Enhanced-RDP"
           linkTwoType="Github"

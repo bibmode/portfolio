@@ -186,7 +186,7 @@ const Home = () => {
           </div>
 
           <div className="bg-violet-600 w-full flex flex-col justify-center items-center py-20 text-white">
-            <h2 className="text-lg lg:text-3xl font-semibold">
+            <h2 className="text-2xl lg:text-3xl font-semibold">
               Explore the Source Code
             </h2>
             <p className="text-center text-lg lg:text-xl pt-4 pb-8">
